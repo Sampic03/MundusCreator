@@ -1,0 +1,23 @@
+package edu.sena.entity.munduscreator;
+
+import edu.sena.entity.munduscreator.Actividades;
+import edu.sena.entity.munduscreator.Cursos;
+import edu.sena.entity.munduscreator.Documentos;
+import edu.sena.entity.munduscreator.Evaluaciones;
+import javax.annotation.Generated;
+import javax.persistence.metamodel.CollectionAttribute;
+import javax.persistence.metamodel.SingularAttribute;
+import javax.persistence.metamodel.StaticMetamodel;
+
+@Generated(value="EclipseLink-2.7.7.v20200504-rNA", date="2022-10-04T13:21:01")
+@StaticMetamodel(Papeleria.class)
+public class Papeleria_ { 
+
+    public static volatile CollectionAttribute<Papeleria, Evaluaciones> evaluacionesCollection;
+    public static volatile SingularAttribute<Papeleria, Integer> pKPAPId;
+    public static volatile CollectionAttribute<Papeleria, Actividades> actividadesCollection;
+    public static volatile SingularAttribute<Papeleria, String> pAPDescripcion;
+    public static volatile CollectionAttribute<Papeleria, Documentos> documentosCollection;
+    public static volatile CollectionAttribute<Papeleria, Cursos> cursosCollection;
+
+}

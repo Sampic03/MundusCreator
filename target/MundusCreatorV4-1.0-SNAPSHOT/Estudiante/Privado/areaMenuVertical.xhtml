@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    
+    
+    <ui:composition>
+        <div class="col-auto col-md-3 col-xl-2 px-sm-4 px-0" style="background:-webkit-linear-gradient(bottom,black,rgb(24, 23, 91));">
+                    <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                        <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none" >
+                            <span class="fs-5 d-none d-sm-inline mt-2 mb-0" style="border: #b80f22;">Menú</span>
+                        </a>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                            
+                            <c:forEach items="#{usuarioSession.usuLog.rolesCollection}" var="rl">
+                               
+                            <li>
+                                <a href="../#{rl.ROLNombre}/Index.xhtml" class="nav-link px-0 align-middle text-white">
+                                    <i class="fs-4 bi-moon-stars"></i> <span class="ms-1 d-none d-sm-inline">#{rl.ROLNombre}</span></a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                    
+                                </ul>
+                            </li>
+                                </c:forEach>
+                        
+                              <li>
+                                <a href="../Estudiante/Index.xhtml" class="nav-link px-0 align-middle text-white">
+                                    <i class="fs-4 bi-person"></i> <span class="ms-1 d-none d-sm-inline">Perfil</span></a>
+                                <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                                    
+                                </ul>
+                            </li>
+                            
+                            <li>
+                                <a href="MisCursosUsuarios.xhtml" class="nav-link px-0 align-middle text-white">
+                                    <i class="fs-4 bi-book"></i> <span class="ms-1 d-none d-sm-inline">Mis cursos</span></a>
+                            </li>
+                        
+                            
+                            <li>
+                                <a href="CertificadosUsuarios.xhtml" class="nav-link px-0 align-middle text-white">
+                                    <i class="fs-4 bi-trophy"></i> <span class="ms-1 d-none d-sm-inline">Certificados</span> </a>
+                                
+                            </li>
+                            
+                            
+                            
+                          
+                        </ul>
+                        
+                    </div>
+                </div>
+        
+    </ui:composition>
+</html>

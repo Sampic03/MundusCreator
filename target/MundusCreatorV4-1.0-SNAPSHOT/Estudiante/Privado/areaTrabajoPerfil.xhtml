@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition>
+
+        <!--tablas-->
+
+        <section class="vh-75 ">
+
+            <div class="container h-100 mt-5 mb-5">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+
+                    <div class="bg-secondary" style="border-radius: 15px;">
+                        <div class="card-body p-5 text-light">
+                            <h2 class="text-uppercase text-center mb-5">Editar Datos</h2>
+                            <div class="text-center mb-5">
+                                <img src="#{usuarioSession.usuLog.USUFoto}" class="rounded-circle" alt="" height="250px" width="230px"/>
+                            </div>
+                            <h:form class="row g-3 ">
+                                <div class="col-12 col-md-12 col-lg-4 col-xl-6 ">
+                                    <div class="form-outline mb-4  ">
+                                        <h:inputText
+                                            value="#{usuarioSession.usuLog.USUNombre}"
+                                            html5:type="text"
+                                            id="formNombre"
+                                            class="form-control form-control-lg  was-validated"
+
+                                            required="true"
+                                            requiredMessage="Ingresa un nombre(s)"
+                                            html5:placeholder="Nombre(s)"
+                                            />
+                                        <h:message for="formNombre" style="color: red"/>
+
+                                    </div>
+
+                                    <div class="form-outline mb-4  ">
+
+                                        <h:inputText html5:type="text"
+                                                     id="formApellido"
+                                                     class="form-control form-control-lg   was-validated"
+
+                                                     required="true"
+                                                     requiredMessage="Ingresa un apellido(s)"
+                                                     html5:placeholder="Apellido(s)"
+                                                     value="#{usuarioSession.usuLog.USUApellido}"
+                                                     />
+                                        <h:message for="formApellido" style="color: red"/>
+
+
+                                    </div>
+
+
+
+                                    <h6 class="mb-1 me-4">Tipo de Documento: </h6>
+                                    <div class="form-group">
+                                        <h:selectOneMenu required="true"
+                                                         value="#{usuarioSession.usuLog.USUTipodedato}"
+                                                         requiredMessage="Ingresa el Tipo de Documento"
+                                                         class="form-select form-select-sm mb-3 w-50 "
+                                                         html5:aria-label=".form-select-sm examplemultiple"  
+                                                         id="formTipoDocumento"
+                                                         >
+                                            <f:selectItem itemLabel="Selecciona..." itemValue="" html5:disabled="ttrue" html5:selected="true"/>
+                                            <f:selectItems value="#{usuarioSession.listaTipDoc}"/>
+                                        </h:selectOneMenu>
+                                        <h:message for="formTipoDocumento" style="color: red"/>
+                                    </div>
+
+
+
+                                    <div class="form-outline mb-4  ">
+
+                                        <h:inputText html5:type="text"
+                                                     id="formDocumento"
+                                                     html5:disabled="true"
+                                                     class="form-control form-control-lg   was-validated"
+
+                                                     required="true"
+                                                     requiredMessage="Ingresa el Número de Documento"
+                                                     html5:placeholder="Número de Documento"
+                                                     value="#{usuarioSession.usuLog.PKUSUId}"
+                                                     />
+                                        <h:message for="formDocumento" style="color: red"/>
+
+
+                                    </div>
+
+
+
+
+
+                                    <!--Genero-->
+                                    <h6 class="mb-1 me-4">Genero: </h6>
+
+                                    <div class="mb-3  ">
+                                        <p:selectOneRadio id="genero" value="#{usuarioSession.usuLog.USUGenero}" 
+                                                          required="true" requiredMessage="Ingresa una opción">
+                                            <f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+                                            <f:selectItem itemLabel="Femenino" itemValue="Femenino"/>
+                                            <f:selectItem itemLabel="Otro" itemValue="Otro"/>
+                                        </p:selectOneRadio>
+                                        <h:message for="genero" style="color: red"/>
+                                    </div>
+
+                                </div> 
+                                <div class="col-12 col-md-12 col-lg-4 col-xl-6">
+
+                                    <!--oooooooooooooo-->
+                                    <div class="form-outline mb-4">
+                                        <h:inputText html5:type="email" 
+                                                     id="formCorreo"
+                                                     class="form-control form-control-lg was-validated"
+
+                                                     required="true"
+                                                     requiredMessage="Ingresa un correo válido"
+                                                     html5:placeholder="Correo electrónico"
+                                                     value="#{usuarioSession.usuLog.USUCorreo}"
+                                                     />
+                                        <h:message for="formCorreo" style="color: red"/>
+
+
+                                    </div>
+
+                                    <div class="form-outline mb-4">
+                                        <h:inputSecret html5:type="password" 
+                                                       id="formContrasenha"
+                                                       class="form-control form-control-lg  was-validated"
+
+                                                       required="true"
+                                                       requiredMessage="Ingresa una contraseña válida"
+                                                       html5:placeholder="Contraseña"
+                                                       value="#{usuarioSession.usuLog.USUContrasenha}"
+                                                       />
+                                        <h:message for="formContrasenha" style="color: red"/>
+
+
+                                    </div>
+
+
+                                    <h6 class="mb-1 me-4">Fecha de nacimiento: </h6>
+
+                                    <h:message for="fechaNacimiento" style="color: red"/>
+                                    <div class="form-outline mb-4  ">
+
+                                        <h:inputText html5:type="date"
+                                                     id="fechaNacimiento"
+                                                     class="form-control form-control-lg   was-validated"
+
+
+                                                     required="true"
+                                                     requiredMessage="Ingresa fechanac"
+                                                     html5:placeholder="Foto"
+                                                     value="#{usuarioSession.usuLog.USUFechaNac}"
+                                                     />
+                                        <h:message for="foto" style="color: red"/>
+
+
+                                    </div>
+
+                                    <div class="form-outline mb-4  ">
+
+                                        <h:inputText html5:type="text"
+                                                     id="NomUser"
+                                                     class="form-control form-control-lg   was-validated"
+
+                                                     required="true"
+                                                     requiredMessage="Ingresa el nombre de usuario"
+                                                     html5:placeholder="Nombre de usuario"
+                                                     value="#{usuarioSession.usuLog.USUNomUsu}"
+                                                     />
+                                        <h:message for="NomUser" style="color: red"/>
+
+
+                                    </div>
+
+                                    <div class="form-outline mb-4  ">
+                                        <h:inputText html5:type="text"
+                                                     id="Foto"
+                                                     class="form-control form-control-lg   was-validated"
+
+                                                     html5:placeholder="Foto"
+                                                     value="#{usuarioSession.usuLog.USUFoto}"
+                                                     />
+
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start ">
+                                    <h:commandButton 
+                                        class="btn  btn-lg btn-block text-light" 
+                                        style="background-color: #4b0081;" 
+                                        value="Editar"
+                                        action="#{usuarioSession.editarMiPefil()}">
+                                    </h:commandButton>
+                                </div>
+
+                            </h:form>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+        <!--tarjetas cursos-->
+
+
+        <!--tarjetas info-->
+
+
+
+
+        <div class=" mt-3 mb-3 d-flex justify-content-end">
+            <div class=" sm-6 card bg-secondarytext-light">
+                <div class="card-body">
+                    <h5 class="card-title">Quieres eliminar tu cuenta?</h5>
+                    <p class="card-text">Elimina tu cuenta de manera temporal</p>
+
+                    <button 
+                        type="button" 
+                        class="btn btn-block text-light" 
+                        style="background-color: #4b0081"
+                        data-bs-toggle="modal" 
+                        data-bs-target="#modalEliminarUsuario"
+                        >
+                        ir   
+                    </button>
+                </div>
+            </div>
+        </div>
+        <h:form id="eliminarmicuenta">
+            <div class="modal fade" id="modalEliminarUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header text-center text-light bg-secondary">
+                            <h5 class="modal-title" id="modalEliminarUsuarioLabel">¿Estás seguro que quieres eliminar al usuario?</h5>
+                            <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-center bg-secondary">
+                            <button type="button" class="btn btn-dark me-2" data-bs-dismiss="modal">Cerrar</button>
+
+                            <h:commandButton 
+                                class="btn text-light me-2"
+                                value="Eliminar"
+                                style="background-color: #4b0081"
+                                action="#{usuarioSession.eliminarMiPefil()}"
+                                > <a href="#{request.contextPath}/"/>
+                            </h:commandButton>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+
+
+
+    </ui:composition>
+</html>
+

@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:html5="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        
+       <a  href="../Administrador/CrearUsuarios.xhtml"
+           class="btn text-light"
+           style="background-color: green">
+           <i class="bi bi-plus-circle" style="color: white">Nuevo</i>
+        </a>
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+        <h:form>
+        <table class="table table-secondary table-striped" id="" style="width:100%">
+            <thead><h1 class="text-dark"><small>Lista Usuarios</small></h1>
+                <tr>
+                    <th scope="col">Número de Documento</th>
+                    <th scope="col">Tipo de Documento</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Fecha de Nacimiento</th>
+                    <th scope="col">Genero</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Nombre de Usuario</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Perfiles</th>
+                    
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="#{usuarioSession.leerTodos()}" var="us">
+                    <tr>
+
+                        <td scope="row">#{us.PKUSUId}</td>
+                        <td scope="row">#{us.USUTipodedato}</td>
+                        <td scope="row">#{us.USUNombre}</td>
+                        <td scope="row">#{us.USUApellido}</td>
+                        <td scope="row">#{us.USUFechaNac}</td>
+                        <td scope="row">#{us.USUGenero}</td>
+                        <td scope="row">#{us.USUCorreo}</td>
+                        <td scope="row">#{us.USUNomUsu}</td>
+                        <td scope="row">#{us.USUEstado == 1?'Activo':'Inactivo'}</td>
+                        <td>
+                            <c:forEach items="#{us.rolesCollection}" var="ra">
+                           #{ra.ROLNombre} <br/>
+                           </c:forEach>                                                    
+                         </td>
+                        
+                        <td scope="row" >
+                                       
+                                <p:commandButton 
+                                    action="#{usuarioSession.encontrarUsuario(us)}"
+                                    icon="bi bi-pencil-square"
+                                    class="btn "
+                                    style="background-color: #4b0081; border: #4b0081;"
+                                    >
+                                </p:commandButton>
+                            
+                          
+                           
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+            </h:form>
+        </div>
+        </div>
+        </div>
+       
+                        
+
+
+
+    </ui:composition>
+</html>
+
