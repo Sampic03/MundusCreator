@@ -8,7 +8,6 @@ edu\sena\controller\munduscreator\VideosSession.class
 edu\sena\entity\munduscreator\Actividades_.class
 edu\sena\entity\munduscreator\Roles_.class
 edu\sena\entity\munduscreator\Usuarios_.class
-edu\sena\controller\munduscreator\CursoView.class
 edu\sena\entity\munduscreator\Papeleria_.class
 edu\sena\facade\munduscreator\PapeleriaFacade.class
 edu\sena\entity\munduscreator\Mensajes_.class
@@ -32,6 +31,7 @@ edu\sena\entity\munduscreator\Usuarios.class
 edu\sena\controller\munduscreator\DocumentoSession.class
 edu\sena\entity\munduscreator\Estados_.class
 edu\sena\facade\munduscreator\EstadosFacade.class
+edu\sena\controller\munduscreator\CursoSession.class
 edu\sena\facade\munduscreator\VideosFacadeLocal.class
 edu\sena\entity\munduscreator\Cursos_.class
 edu\sena\facade\munduscreator\RolesFacade.class

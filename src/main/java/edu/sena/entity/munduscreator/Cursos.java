@@ -56,7 +56,7 @@ public class Cursos implements Serializable {
     private String cURDescripcion;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 450)
+    @Size(min = 1, max = 21000)
     @Column(name = "CUR_IMAGEN")
     private String curImagen;
     @ManyToMany(mappedBy = "cursosCollection", fetch = FetchType.LAZY)

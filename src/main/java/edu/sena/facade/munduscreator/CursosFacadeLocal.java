@@ -32,6 +32,10 @@ public interface CursosFacadeLocal {
 
     public List<Cursos> leerCursos();
 
+    public boolean asignarMultimediaCurso(int id_mul);
+
+    public boolean asignarPapeleriaCurso(int id_pap);
+
    
     
 }

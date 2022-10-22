@@ -64,7 +64,6 @@
                                                 id="formNombre"
                                                 class="form-control form-control-lg"
                                                 required="true"
-                                                
                                                 html5:placeholder="Nombre(s)"
                                                 >
                                             <f:validateBean for="formNombre"/>
@@ -77,7 +76,6 @@
                                                          id="formApellido"
                                                          class="form-control form-control-lg"
                                                          required="true"
-                                                         requiredMessage="Ingresa un apellido(s)"
                                                          html5:placeholder="Apellido(s)"
                                                          value="#{usuarioSession.usuReg.USUApellido}"
                                                          >
@@ -114,7 +112,6 @@
                                                          html5:placeholder="Número de Documento"
                                                          value="#{usuarioSession.usuReg.PKUSUId}"
                                                          >
-                                            <f:validateBean for="formDocumento"/>
                                             </h:inputText>
                                             <h:message for="formDocumento" style="color: red"/>
                                         </div>
@@ -142,7 +139,6 @@
                                                          id="formCorreoR"
                                                          class="form-control form-control-lg"
                                                          required="true"
-                                                         requiredMessage="Ingresa un correo válido"
                                                          html5:placeholder="Correo electrónico"
                                                          value="#{usuarioSession.usuReg.USUCorreo}"
                                                          >
@@ -156,7 +152,6 @@
                                                            id="formContrasenha"
                                                            class="form-control form-control-lg was-validated"
                                                            required="true"
-                                                           
                                                            html5:placeholder="Contraseña"
                                                            value="#{usuarioSession.usuReg.USUContrasenha}"
                                                            >
@@ -180,7 +175,6 @@
                                                          />
                                             <h:message for="foto" style="color: red"/>
 
-
                                         </div>
 
                                         <div class="form-outline mb-4  ">
@@ -189,7 +183,6 @@
                                                          id="NomUser"
                                                          class="form-control form-control-lg"
                                                          required="true"
-                                                         requiredMessage="Ingresa el nombre de usuario"
                                                          html5:placeholder="Nombre de usuario"
                                                          value="#{usuarioSession.usuReg.USUNomUsu}"
                                                          >

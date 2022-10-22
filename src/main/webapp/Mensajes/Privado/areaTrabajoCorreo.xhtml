@@ -35,9 +35,8 @@
                                             style="border: black;" 
                                             html5:placeholder="Correo electrònico" 
                                             required="true"
-                                            requiredMessage="Ingresa un correo válido"
                                             value="#{usuarioSession.cooreoSend}">
-                                            <f:validateBean for="formCorreo"/>
+                                            <f:validateBean for="CorreoSend"/>
                                             <f:ajax event="keyup" render="@this correoMS"/>
                                         </h:inputText>
                                         <h:message id="correoMS" for="CorreoSend" class="text-danger"/>

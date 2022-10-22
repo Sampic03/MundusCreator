@@ -36,6 +36,7 @@ public class Usuarios implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 20)
     @Column(name = "PK_USU_Id")
     private Integer pKUSUId;
     @Basic(optional = false)
@@ -45,13 +46,11 @@ public class Usuarios implements Serializable {
     private String uSUTipodedato;
     @Basic(optional = false)
     @NotNull
-    @Pattern(regexp = "[a-zA-ZÀ-ÿ\\s]{1,40}", message = "Ingresa un Nombre valido!")
     @Size(min = 1, max = 50)
     @Column(name = "USU_Nombre")
     private String uSUNombre;
     @Basic(optional = false)
     @NotNull
-    @Pattern(regexp = "[a-zA-ZÀ-ÿ\\s]{1,40}", message = "Ingresa un apellido valido!")
     @Size(min = 1, max = 50)
     @Column(name = "USU_Apellido")
     private String uSUApellido;
@@ -68,18 +67,15 @@ public class Usuarios implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 60)
-    @Pattern(regexp = "[a-z0-9]+@[a-z]+\\.[a-z]{2,3}", message = "Ingresa un correo valido!")
     @Column(name = "USU_Correo")
     private String uSUCorreo;
     @Basic(optional = false)
     @NotNull
-    
     @Size(min = 1, max = 50)
     @Column(name = "USU_NomUsu")
     private String uSUNomUsu;
     @Basic(optional = false)
     @NotNull
-    
     @Size(min = 1, max = 50)
     @Column(name = "USU_Contrasenha")
     private String uSUContrasenha;

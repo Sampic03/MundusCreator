@@ -54,39 +54,12 @@ public class UsuarioSession implements Serializable {
 
     }
     
-    public static boolean claveSegura(String clave){
-        boolean result = false;
-        boolean mayus = false;
-        boolean numero =false;
-            if (clave.length()>8) {
-                
-                char c;
-                
-                for(int i=0; i<clave.length(); i++){
-                    
-                    c = clave.charAt(i);
-                    if (Character.isDigit(c)) {
-                        numero = true;
-                    }
-                    if(Character.isUpperCase(c)){
-                        mayus = true;
-                    }
-                }
-                
-                if (numero && mayus) {
-                    result=true;
-                }else{
-                    result= false;
-                }
-     }
-      return result;
-    }
+    
 
     public void crearUsuario() {
-        boolean comprobar = claveSegura(UsuReg.getUSUContrasenha());
+       
         try {
-            if (comprobar) {
-            UsuReg.setUSUEstado(Short.parseShort("1"));
+            UsuReg.setUSUEstado(Short.parseShort("1"));  
             UsuReg.setUSUFoto(String.valueOf("https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"));
             ufl.create(UsuReg);
             ufl.asignaRol(UsuReg.getPKUSUId(), 1);
@@ -95,17 +68,7 @@ public class UsuarioSession implements Serializable {
             UsuLog = ufl.validarUsuario(UsuReg.getUSUCorreo(), UsuReg.getUSUContrasenha());
             FacesContext fx = FacesContext.getCurrentInstance();
             fx.getExternalContext().redirect("Estudiante/Index.xhtml");
-            UsuReg = new Usuarios();
-            }else{
-            PF.current().executeScript(
-                    "  swal.fire({"
-                    + "  position: 'top-center',"
-                    + "  icon: 'error',"
-                    + "  title: 'Valide su contraseña',"
-                    + "  showConfirmButton: false,"
-                    + "  timer: 1500"
-                    + "  })");
-            }
+            UsuReg = new Usuarios();      
         } catch (Exception e) {
             PF.current().executeScript(
                     "  swal.fire({"
@@ -258,8 +221,9 @@ public class UsuarioSession implements Serializable {
             UsuReg.setUSUFoto(String.valueOf("https://t4.ftcdn.net/jpg/02/15/84/43/360_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"));
             ufl.create(UsuReg);
             ufl.asignaRol(UsuReg.getPKUSUId(), 1);
-            
+            ms.sendMessageRegister(UsuReg.getUSUCorreo(), UsuReg.getUSUNombre(),UsuReg.getUSUApellido());
             ms = new MailService();
+            UsuReg = new Usuarios();
         } catch (Exception e) {
             PF.current().executeScript(
                     "  swal.fire({"
@@ -281,7 +245,6 @@ public class UsuarioSession implements Serializable {
     public void editarPefilExt() {
         try {
             ufl.edit(UsuExt);
-
             PF.current().executeScript(
                     "  swal.fire({"
                     + "  position: 'top-center',"

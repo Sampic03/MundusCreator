@@ -38,4 +38,28 @@ public class CursosFacade extends AbstractFacade<Cursos> implements CursosFacade
         return q.getResultList();         
     }
     
+    @Override
+    public boolean asignarMultimediaCurso( int id_mul) {
+        try {
+            Query q = em.createNativeQuery("INSERT INTO tbl_cursos (fk_mul_id) VALUES (?)");
+            // tome el primer ? y lo cambia por id_usu
+            q.setParameter(1, id_mul);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    @Override
+    public boolean asignarPapeleriaCurso( int id_pap) {
+        try {
+            Query q = em.createNativeQuery("INSERT INTO tbl_cursos (fk_pap_id) VALUES (?)");
+            // tome el primer ? y lo cambia por id_usu
+            q.setParameter(1, id_pap);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
 }
